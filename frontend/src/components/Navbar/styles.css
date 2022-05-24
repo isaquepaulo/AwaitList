@@ -1,0 +1,45 @@
+.class-spam{
+    color: rgb(183, 107, 245);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #181819;
+    font-size: 1.0rem;
+}
+
+.navbar-light .navbar-nav .nav-link span{
+    
+    font-weight: bold;
+    color: rgb(183, 107, 245);
+}
+
+span.usuario{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(183, 107, 245);
+
+}
+
+.nav-main{
+    border-bottom: 1px solid rgb(245, 235, 235);
+    padding: 10px 10px 10px 30px
+}
+
+
+.btn-exit:hover{
+    color: #fff;
+    background: rgb(183, 107, 245);
+
+}
+
+.btn-daark:hover{
+    color: #fff;
+    background: rgb(41, 41, 41);
+
+}
+
+.btn-daark.active{
+    color: rgb(255, 255, 255);
+    background: rgb(41, 41, 41);
+
+}
