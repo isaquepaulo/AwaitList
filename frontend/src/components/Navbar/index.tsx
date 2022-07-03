@@ -4,16 +4,18 @@ import {
   faMoon,
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import Dropdown from "react-bootstrap/Dropdown";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light nav-main">
       <div className="container">
-        <a className="navbar-brand mr-5" href="#">
+        <Link to="/" className="navbar-brand mr-5">
           <h3>
             a<span className="class-spam">W</span>ait
           </h3>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -34,36 +36,19 @@ const Navbar = () => {
             aria-label="Search"
           />
           <ul className="navbar-nav mr-auto">
-            <li className=" dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Descubra mais
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Procurar Manga
-                </a>
-                <a className="dropdown-item" href="#">
-                  Top Mangas
-                </a>
-                <a className="dropdown-item" href="#">
-                  Recomendações
-                </a>
-                <a className="dropdown-item" href="#">
-                  Reviews
-                </a>
-              </div>
-            </li>
+            <Dropdown>
+              <Dropdown.Toggle variant="success">Open Menu</Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Link to="/search">Top Mangas</Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                <Dropdown.Item href="#">Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
             <li className="nav-item">
-              <a className="nav-link ">
-                Bem Vindo <span className="">Isaque</span>
-              </a>
+              Bem Vindo <span className="">Isaque</span>
             </li>
           </ul>
           <div className="Button-nav">
