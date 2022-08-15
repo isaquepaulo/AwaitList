@@ -1,9 +1,12 @@
 import "./styles.css";
-import MainImage from "assets/imgs/boruto.jpg";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { faStarHalfAlt } from "@fortawesome/free-regular-svg-icons";
 import { Manga } from "types/manga";
+import { MangaSlide } from "types/mangaSlide";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 type Props = {
   manga: Manga[];
@@ -51,19 +54,9 @@ const CardManga = ({ manga }: Props) => {
         </div>
       </div>
 
-      <div
-        className="modal fade"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <button
-          type="button"
-          className="btn-close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <FontAwesomeIcon icon={faX} />
+      <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <button type="button" className=" btn-close" data-dismiss="modal" aria-label="Close">
+          <i className="fa-solid fa-x fa-xs"></i>
         </button>
         <div className="modal-dialog modal-lg ">
           <div className="modal-content mt-5">
@@ -71,20 +64,14 @@ const CardManga = ({ manga }: Props) => {
               <div className="container">
                 <div className="row">
                   <div className="col-12 col-md-6 mb-2">
-                    <img
-                      className="img-fluid-modal card-img card-img-responsive"
-                      src={MainImage}
-                      alt="..."
-                    />
+                    <img className="img-fluid card-img" src="../img/boruto.jpg" alt="..." />
                   </div>
                   <div className="col-12 col-md-6">
                     <div className="conteudo-modal">
                       <h2>Boruto</h2>
                       <h6 className="text-muted"> Autor: Masashi Kishimoto</h6>
                       <h5 className="mt-3">Informações:</h5>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
-                      </p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                       <br />
                       <div className="d-flex justify-content-between">
                         <h5>Ultima atualização:</h5>
@@ -96,58 +83,19 @@ const CardManga = ({ manga }: Props) => {
                       </div>
                       <div className="d-flex justify-content-between">
                         <h5>Avaliação:</h5>
-                        <p>
-                          <i
-                            className="fa-solid fa-star"
-                            aria-hidden="true"
-                          ></i>
-                          <i
-                            className="fa-solid fa-star"
-                            aria-hidden="true"
-                          ></i>
-                          <i
-                            className="fa-solid fa-star"
-                            aria-hidden="true"
-                          ></i>
-                          <i
-                            className="fa-solid fa-star"
-                            aria-hidden="true"
-                          ></i>
-                          <i
-                            className="fa-regular fa-star"
-                            aria-hidden="true"
-                          ></i>{" "}
-                        </p>
+                        <p><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-regular fa-star" aria-hidden="true"></i> </p>
                       </div>
                       <div className="d-flex justify-content-between">
                         <h5>Status:</h5>
                         <li className="dropdown">
-                          <a
-                            className="nav-link nav-status dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-expanded="false"
-                          >
+                          <a className="nav-link nav-status dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                             Escolher status
                           </a>
-                          <div
-                            className="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                          >
-                            <a className="dropdown-item" href="#">
-                              lendo
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Para ler
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Dropado
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Em espera
-                            </a>
+                          <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a className="dropdown-item" href="#">lendo</a>
+                            <a className="dropdown-item" href="#">Para ler</a>
+                            <a className="dropdown-item" href="#">Dropado</a>
+                            <a className="dropdown-item" href="#">Em espera</a>
                           </div>
                         </li>
                       </div>
@@ -157,13 +105,7 @@ const CardManga = ({ manga }: Props) => {
                       </div>
                       <div>
                         <h5>Sinopse</h5>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Assumenda libero corporis ut reiciendis quas
-                          recusandae accusamus, minus necessitatibus distinctio
-                          cupiditate! Sed veniam quasi aspernatur voluptatum
-                          voluptates? Fugiat aut ducimus totam!
-                        </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda libero corporis ut reiciendis quas recusandae accusamus, minus necessitatibus distinctio cupiditate! Sed veniam quasi aspernatur voluptatum voluptates? Fugiat aut ducimus totam!</p>
                       </div>
                     </div>
                   </div>
