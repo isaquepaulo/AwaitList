@@ -1,12 +1,12 @@
 import "./styles.css";
-import MainImage from "assets/imgs/boruto.jpg";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import { faStarHalfAlt } from "@fortawesome/free-regular-svg-icons";
 import { Manga } from "types/manga";
+import { MangaSlide } from "types/mangaSlide";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
 
 type Props = {
   manga: Manga[];

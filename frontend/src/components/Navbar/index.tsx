@@ -6,9 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -37,13 +35,17 @@ const NavigationBar = () => {
 
               <Dropdown>
                 <Dropdown.Toggle className="div-dropdown-navigation-text" variant="success">Descubra Mangás</Dropdown.Toggle>
+
                 <Dropdown.Menu>
-                  <Dropdown.Item className="div-dropdown-navigation-text">
-                    <Link to="/search">Top Mangás</Link>
+                  <Dropdown.Item className="div-dropdown-navigation-text" href="/search">
+                    Top Mangás
                   </Dropdown.Item>
+
                   <Dropdown.Item className="div-dropdown-navigation-text">Settings</Dropdown.Item>
                   <Dropdown.Item className="div-dropdown-navigation-text">Logout</Dropdown.Item>
+
                 </Dropdown.Menu>
+
               </Dropdown>
 
               <div className="div-name-user">

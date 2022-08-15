@@ -5,9 +5,10 @@ import { Images } from "./images";
 import { Published } from "./published";
 import { Themes } from "./themes";
 import { Webp } from "./webp";
+import { Mal_id } from "./mal_id";
 
 export type Manga = {
-  mal_id: number;
+  mal_id: Mal_id;
   url: string;
   images: Images[];
   webp: Webp[];
