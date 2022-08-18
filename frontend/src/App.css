@@ -1,20 +1,26 @@
- h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    margin-bottom: 0;
-}
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-weight: 700;
+     margin-bottom: 0;
+ }
 
-a, a:hover {
-    text-decoration: none;
-    color: unset;
-    cursor: pointer;
-}
+ a,
+ a:hover {
+     text-decoration: none;
+     color: unset;
+     cursor: pointer;
+ }
 
-li {
-    text-decoration: none;
-    list-style-type: none;
-}
+ li {
+     text-decoration: none;
+     list-style-type: none;
+ }
 
-.class-spam{
-    color: rgb(183, 107, 245);
-} 
+ .class-spam {
+     color: rgb(183, 107, 245);
+ }
 
+ 

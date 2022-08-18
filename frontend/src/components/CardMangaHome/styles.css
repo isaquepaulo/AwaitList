@@ -1,97 +1,83 @@
-.card-style {
-    width: 100%;
-    height: 95%;
-}
-
-.estrela {
-    color: rgb(183, 107, 245);
-}
-
-.card-img-responsive {
-    height: 100%;
-    width: 90%
-}
-
-/* NAV */
-.btn-exit:hover {
-    color: #fff;
-    background: rgb(183, 107, 245);
-
-}
-
-.btn-daark:hover {
-    color: #fff;
-    background: rgb(41, 41, 41);
-
-}
-
-.btn-daark.active {
-    color: rgb(255, 255, 255);
-    background: rgb(41, 41, 41);
-
-}
-
-.nav-main {
-    border-bottom: 1px solid rgb(245, 235, 235);
-}
-
-span.usuario {
-    font-size: 1.2rem;
-    font-weight: bold;
+.card-teste {
+    background: #f0ecec;
+    height: 130px;
+    margin-right: 21px;
+    border-radius: 10%;
+    box-shadow: 5px 5px 15px 5px rgba(240, 131, 231, 0.28);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 8px;
 
 }
 
 
-nav.active {
-    background: rgb(41, 41, 41);
-    color: #fff
+
+.card-teste:hover {
+    box-shadow: 0px 7px 15px 5px rgb(216, 177, 248);
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
 }
 
 
+.card-img-container {
+    width: 100px;
+    align-items: center;
+    margin-top: 10px;
+    height: 110px;
+    padding-left: 10px;
 
-
-/* pagination */
-
-
-.btn-radius {
-    border: 1px solid rgb(202, 202, 202);
-    border-radius: 60%;
-
-}
-
-.btn-radius:hover {
-
-    background: rgb(183, 107, 245);
-    color: #fff;
-}
-
-
-
-
-/* Card */
-.fa-star {
-    color: rgb(183, 107, 245);
-    font-size: 0.9em;
-    margin-top: -30px;
-}
-
-.status {
-    padding-top: 10px;
-    font-size: 15px;
-}
-
-.cap {
-    font-size: 12px
 }
 
 .card-img {
-    box-shadow: 0px 10px 13px -7px #000000;
+    width: 100%;
+    height: 100%;
+}
+
+
+.card-body {
+    padding: 0;
+    margin-top: 5px;
+}
+
+.card-text-container {
+    padding: 0;
+}
+
+.card-informations {
+    width: 200px;
+}
+
+.text-muted {
+    line-height: 20px;
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
+.text-data {
+    font-size: 12px;
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
+
+.star-container .fa-star {
+    color: rgb(183, 107, 245);
+    font-size: 0.7em;
+    margin-top: -30px;
+}
+
+.star_half_main {
+    color: rgb(183, 107, 245);
+    font-size: 0.7em;
+    margin-top: -30px;
 
 }
 
-.img-fluid {
-    max-height: 200px;
-}
+
+
+
+
+
 
 .card-style:hover {
     box-shadow: 0px 7px 15px 5px rgb(216, 177, 248);
@@ -104,62 +90,68 @@ nav.active {
     justify-self: center;
 }
 
-.card.active {
-    background: red;
-    color: rgb(245, 235, 235)
-}
 
-.btn-close {
-    display: flex;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    align-items: center;
-    border-radius: 20px;
-    cursor: pointer;
-    float: right;
-    font-size: 1.5rem;
-    color: #000;
-    border: none;
-    margin-top: 20px;
-    margin-right: 30px;
-}
-
-.btn-close:hover {
-    color: #fff;
-    background: rgb(183, 107, 245);
-}
-
-@media (min-width: 300px) and (max-width: 370px) {
-    .card-text {
-        font-size: 18px;
+@media(min-width:480px) {
+    .card-img-container {
+        width: 90px;
+        height: 100px;
     }
 
     .text-muted {
-        font-size: 12px;
-
+        font-size: 12px
     }
 
-    .card-img {
-        width: 900px;
+    .cap {
+        font-size: 10px
     }
 
 
 }
 
-@media (min-width: 575px) and (max-width: 370px) {
-    .card-text {
-        font-size: 18px;
+
+@media(min-width:501px) and (max-width:550px) {
+    .card-img-container {
+        width: 80px;
+        height: 90px;
     }
 
+}
+
+@media(min-width:576px) {
     .text-muted {
-        font-size: 12px;
+        font-size: 14px;
+    }
+}
 
+@media(min-width:789px) and (max-width:991px) {
+    .card-teste {
+        margin-left: 0;
+        width: 220px;
     }
 
-    .card-img {
-        width: 900px;
+}
+
+@media(min-width:992px) and (max-width:1024px) {
+    .card-teste {
+        width: 300px;
     }
+}
+
+@media(min-width:1025px) {
+    .card-teste {
+        width: 220px;
+    }
+}
 
 
+@media(min-width:1200px) {
+    .card-teste {
+        width: 270px;
+    }
+}
+
+@media(min-width:1400px) {
+    .card-teste {
+        width: 300px;
+    }
 }

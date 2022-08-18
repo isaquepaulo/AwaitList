@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import "./styles.css";
 import { MangaSecondarySlide } from "types/mangaSecondarySlide";
 import CardMangaHome from "components/CardMangaHome";
 
@@ -9,10 +10,10 @@ type Props = {
 const SlideSecondary = ({ Arrymangas }: Props) => {
     var settings = {
         dots: false,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 3,
         initialSlide: 0,
         responsive: [
             {
@@ -25,6 +26,14 @@ const SlideSecondary = ({ Arrymangas }: Props) => {
                 }
             },
             {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
@@ -33,7 +42,7 @@ const SlideSecondary = ({ Arrymangas }: Props) => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 500,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -42,7 +51,7 @@ const SlideSecondary = ({ Arrymangas }: Props) => {
         ]
     };
     return (
-        <div>
+        <div >
             <Slider {...settings}>
                 {Arrymangas.map(mangas => (
                     <CardMangaHome manga={mangas.entry} key={0} />

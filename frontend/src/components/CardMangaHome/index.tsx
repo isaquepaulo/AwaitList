@@ -11,33 +11,33 @@ type Props = {
 const CardMangaHome = ({ manga }: Props) => {
   const texto = JSON.stringify(manga);
   const Manga = JSON.parse(texto);
+
   return (
-    <div className="row no-gutters">
-      <div className="col-5 col-sm-4 col-md-4 py-3 px-2 d-flex ">
+    <div className="card-teste row">
+      <div className="card-img-container col-5 col-sm-4 col-md-4">
         <img
-          className="img-fluid card-img mb-2"
+          className="img-fluid card-img "
           src={Manga.images.jpg.image_url}
           alt="..."
         />
       </div>
-      <div className="col-7 col-sm-8 col-md-8">
+      <div className="card-text-container col-7 col-sm-7 col-md-7">
         <div className="card-body">
-          <small className="text-muted">{Manga.title}</small>
-          <br />
-          <FontAwesomeIcon icon={faStar} className="estrela" />
-          <FontAwesomeIcon icon={faStar} className="estrela" />
-          <FontAwesomeIcon icon={faStar} className="estrela" />
-          <FontAwesomeIcon icon={faStar} className="estrela" />
-          <FontAwesomeIcon icon={faStarHalfAlt} className="estrela" />
+          <div className="text-muted">{Manga.title}</div>
+          <div className="star-container">
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStarHalfAlt} className="star_half_main" />
+            <span className="cap d-none d-lg-block"> Cap: 91</span>
+          </div>
 
-          <p className="card-text">
-            <span className="status">Status: Lendo</span>
-            <br />
-            <span className="cap">Cap 20/91</span> <br />{" "}
-            <small className="text-muted">
-              Ultima vez visto 23/04/2022
-            </small>
-          </p>
+          <div className="card-text">
+            <div className="text-data">
+              Data: 23/04/2022
+            </div>
+          </div>
         </div>
       </div>
     </div>
