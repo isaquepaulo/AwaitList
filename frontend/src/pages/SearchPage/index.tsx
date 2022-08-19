@@ -22,8 +22,8 @@ const SearchPage = () => {
         </h2>
       </div>
       <div className="row mt-5">
-        {mangas?.map((manga, x) => ( 
-          <div className="col-12 col-sm-12 col-md-6 col-lg-4 pb-5" key={x + 1}>
+        {mangas?.map((manga, x) => (
+          <div className="col-12 col-sm-12 col-md-6 col-lg-3 pb-5" key={x + 1}>
             <CardManga manga={manga} />
           </div>
         ))}

@@ -1,97 +1,10 @@
 .card-style {
     width: 100%;
     height: 95%;
+    padding: 20px 10px 20px 10px;
+    box-shadow: 5px 5px 15px 5px rgba(240, 131, 231, 0.28);
 }
 
-.estrela {
-    color: rgb(183, 107, 245);
-}
-
-.card-img-responsive {
-    height: 100%;
-    width: 90%
-}
-
-/* NAV */
-.btn-exit:hover {
-    color: #fff;
-    background: rgb(183, 107, 245);
-
-}
-
-.btn-daark:hover {
-    color: #fff;
-    background: rgb(41, 41, 41);
-
-}
-
-.btn-daark.active {
-    color: rgb(255, 255, 255);
-    background: rgb(41, 41, 41);
-
-}
-
-.nav-main {
-    border-bottom: 1px solid rgb(245, 235, 235);
-}
-
-span.usuario {
-    font-size: 1.2rem;
-    font-weight: bold;
-
-}
-
-
-nav.active {
-    background: rgb(41, 41, 41);
-    color: #fff
-}
-
-
-
-
-/* pagination */
-
-
-.btn-radius {
-    border: 1px solid rgb(202, 202, 202);
-    border-radius: 60%;
-
-}
-
-.btn-radius:hover {
-
-    background: rgb(183, 107, 245);
-    color: #fff;
-}
-
-
-
-
-/* Card */
-.fa-star {
-    color: rgb(183, 107, 245);
-    font-size: 0.7em;
-    margin-top: -30px;
-}
-
-.status {
-    padding-top: 10px;
-    font-size: 15px;
-}
-
-.cap {
-    font-size: 12px
-}
-
-.card-img {
-    box-shadow: 0px 10px 13px -7px #000000;
-
-}
-
-.img-fluid {
-    max-height: 200px;
-}
 
 .card-style:hover {
     box-shadow: 0px 7px 15px 5px rgb(216, 177, 248);
@@ -99,36 +12,99 @@ nav.active {
     transform: scale(1.1, 1.1);
 }
 
-.topico {
-    display: flex;
-    justify-self: center;
+
+.container-card-manga {
+    width: 100%;
+    height: 140px;
 }
 
-.card.active {
-    background: red;
-    color: rgb(245, 235, 235)
+.teste {
+    padding: 0px 0px 2px 10px;
 }
 
-.btn-close {
-    display: flex;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    align-items: center;
-    border-radius: 20px;
-    cursor: pointer;
-    float: right;
-    font-size: 1.5rem;
-    color: #000;
-    border: none;
-    margin-top: 20px;
-    margin-right: 30px;
+.card-img {
+    height: 100%;
+    width: 100%
 }
 
-.btn-close:hover {
-    color: #fff;
-    background: rgb(183, 107, 245);
+.card-body {
+    margin-top: -4px;
+    padding: 0;
 }
+
+.card-title {
+    font-size: 1.0em;
+}
+
+.card-autor-text {
+    margin-top: -5px;
+}
+
+.container-stars {
+    margin-top: -25px
+}
+
+.estrela {
+    color: rgb(183, 107, 245);
+}
+
+
+
+
+
+
+/* Modal */
+.modal-card-img {
+    width: 80%;
+    margin-left: (auto - 30px);
+    margin-left: auto;
+    margin-bottom: 10px;
+
+
+
+}
+
+.card-img-modal {
+    width: 80%;
+    margin-left: -5px;
+    height: 50%;
+    max-height: 320px;
+    box-shadow: 0px 10px 13px -7px #000000;
+}
+
+.content-modal-text h1 {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 2px;
+}
+
+.modal-card-title {
+    margin-top: -10px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.author-name-modal {
+    color: rgb(183, 107, 245);
+    font-size: 1.0em;
+}
+
+.synopsi-name-modal {
+    font-size: 1.0em;
+}
+
+.synopsi-text-modal {
+    font-size: 0.8em;
+}
+
+
+.container-genres {
+    flex-wrap: wrap;
+
+}
+
+
+
 
 @media (min-width: 300px) and (max-width: 370px) {
     .card-text {
@@ -147,19 +123,79 @@ nav.active {
 
 }
 
-@media (min-width: 575px) and (max-width: 370px) {
-    .card-text {
-        font-size: 18px;
+
+
+
+@media (min-width: 768px) {
+    .modal-card-img {
+        width: 100%;
+        height: auto;
+
     }
 
-    .text-muted {
-        font-size: 12px;
+    .card-img-modal {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 10px 13px -7px #000000;
+    }
+
+    .modal-card-title {
+        margin-top: -10px;
+    }
+
+    .author-name-modal {
+        color: rgb(183, 107, 245);
+        font-size: 1.0em;
+    }
+
+    .synopsi-name-modal {
+        font-size: 1.2em;
+    }
+
+    .synopsi-text-modal {
+        font-size: 0.8em;
 
     }
 
-    .card-img {
-        width: 900px;
+}
+
+@media (min-width: 992px) {
+
+    .modal-card-img {
+        width: 100%;
+        height: auto;
+
+
     }
+
+    .card-img-modal {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 10px 13px -7px #000000;
+    }
+
+    .modal-card-title {
+        margin-top: -10px;
+        font-size: 1.8em;
+    }
+
+
+
+    .author-name-modal {
+        color: rgb(183, 107, 245);
+        font-size: 1.2em;
+    }
+
+    .synopsi-name-modal {
+        font-size: 1.2em;
+    }
+
+    .synopsi-text-modal {
+        font-size: 1.0em;
+
+    }
+
+
 
 
 }
