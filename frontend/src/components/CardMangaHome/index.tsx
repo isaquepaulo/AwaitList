@@ -13,36 +13,40 @@ const CardMangaHome = ({ manga }: Props) => {
   const Manga = JSON.parse(texto);
 
   return (
-    <div className="card-teste row">
-      <div className="card-img-container col-5 col-sm-4 col-md-4">
-        <img
-          className="img-fluid card-img "
-          src={Manga.images.jpg.image_url}
-          alt="..."
-        />
-      </div>
-      <div className="card-text-container col-7 col-sm-7 col-md-7">
-        <div className="card-body">
-          <div className="text-muted">{Manga.title}</div>
-          <div className="star-container">
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStarHalfAlt} className="star_half_main" />
-            <span className="cap d-none d-lg-block"> Cap: 91</span>
+    <div className="card card-style-home">
+      <div className="row">
+        <div className=" col-5 col-sm-4 col-md-4 teste">
+          <div className="container-card-manga">
+            <img
+              className="img-fluid card-img mb-2"
+              src={Manga.images.jpg.image_url}
+              alt="..."
+            />
           </div>
+        </div>
+        <div className="col-7 col-sm-8 col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">{Manga.title}</h5>
 
-          <div className="card-text">
-            <div className="text-data">
-              Data: 23/04/2022
+            <div className="text-muted card-autor-text">Autor: Masashi Kishimoto</div>
+            <br />
+            <div className="container-stars">
+              <FontAwesomeIcon icon={faStar} className="estrela" />
+              <FontAwesomeIcon icon={faStar} className="estrela" />
+              <FontAwesomeIcon icon={faStar} className="estrela" />
+              <FontAwesomeIcon icon={faStar} className="estrela" />
+              <FontAwesomeIcon icon={faStarHalfAlt} className="estrela" />
             </div>
+
+            <p className="card-text">
+              <span className="cap">Cap 20/91</span>
+            </p>
           </div>
         </div>
       </div>
     </div>
-  )
 
+  )
 
 
 };

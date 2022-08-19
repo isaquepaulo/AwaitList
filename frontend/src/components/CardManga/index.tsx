@@ -1,116 +1,131 @@
 import "./styles.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faX } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStarHalfAlt } from "@fortawesome/free-regular-svg-icons";
+import Modal, { ModalProps } from 'react-bootstrap/Modal';
+
 import { Manga } from "types/manga";
-import { MangaSlide } from "types/mangaSlide";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Genres } from "types/genres";
+import { Themes } from "types/themes";
+import { Demographics } from "types/demographics";
+
+
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, RefObject, useState } from "react";
+import { Omit, BsPrefixProps } from "react-bootstrap/esm/helpers";
+import CardGenre from "components/CardGenre";
+
+
 
 type Props = {
   manga: Manga[];
 };
 
+
 const CardManga = ({ manga }: Props) => {
+  const [modalShow, setModalShow] = useState(false);
   const texto = JSON.stringify(manga);
   const Manga = JSON.parse(texto);
+
+
+
+
+  function ModalCard(props: JSX.IntrinsicAttributes & Omit<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof HTMLAttributes<HTMLDivElement>> & { ref?: ((instance: HTMLDivElement | null) => void) | RefObject<HTMLDivElement> | null | undefined; }, BsPrefixProps<"div"> & ModalProps> & BsPrefixProps<"div"> & ModalProps & { children?: ReactNode; }) {
+
+    let genres: Genres[] = Manga.genres;
+
+    let themes: Themes[] = Manga.themes;
+
+
+    let demographics: Demographics[] = Manga.demographics;
+
+
+
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton />
+
+        <Modal.Body>
+          <div className="row">
+            <div className="col-12 col-lg-5">
+              <div className="modal-card-img">
+                <img
+                  className="img-fluid-modal card-img-modal mb-2"
+                  src={Manga.images.jpg.image_url}
+                  alt="..."
+                />
+              </div>
+              <div className="container-genres d-flex justify-content-center mb-3">
+                {genres?.map((genre, x) => (
+                  <CardGenre genre={genre.name} id={genre.mal_id} key={genre.mal_id} />
+                ))}
+
+                {themes?.map((themes, x) => (
+                  <CardGenre genre={themes.name} id={themes.mal_id} key={themes.mal_id} />
+                ))}
+                {demographics?.map((demographics, x) => (
+                  <CardGenre genre={demographics.name} id={demographics.mal_id} key={demographics.mal_id} />
+                ))}
+              </div>
+            </div>
+            <div className=" col-lg-7">
+              <div className="content-modal-text">
+                <h1 className="modal-card-title">{Manga.title}</h1>
+                <h1 className="author-name-modal">Autor: {Manga.authors[0].name}</h1>
+
+                <h3 className="synopsi-name-modal">Sinopse:</h3>
+                <p className="synopsi-text-modal">{Manga.synopsis}</p>
+              </div>
+            </div>
+
+          </div>
+        </Modal.Body>
+
+      </Modal >
+    );
+  }
+
+
+
   return (
     <>
-      <div
-        className="card card-style"
-        data-toggle="modal"
-        data-target="#exampleModal"
-      >
-        <div className="row no-gutters">
-          <div className="col-5 col-sm-4 col-md-4 py-3 px-2 d-flex ">
-            <img
-              className="img-fluid card-img mb-2"
-              src={Manga.images.jpg.image_url}
-              alt="..."
-            />
+      <ModalCard
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+      <div className="card card-style " onClick={() => setModalShow(true)}>
+
+        <div className="row">
+          <div className=" col-5 col-sm-4 col-md-4 teste">
+            <div className="container-card-manga">
+              <img
+                className="img-fluid card-img mb-2"
+                src={Manga.images.jpg.image_url}
+                alt="..."
+              />
+            </div>
           </div>
           <div className="col-7 col-sm-8 col-md-8">
             <div className="card-body">
               <h5 className="card-title">{Manga.title}</h5>
-              <small className="text-muted">Autor: Masashi Kishimoto</small>
+
+              <div className="text-muted card-autor-text">{Manga.authors[0].name}</div>
               <br />
-              <FontAwesomeIcon icon={faStar} className="estrela" />
-              <FontAwesomeIcon icon={faStar} className="estrela" />
-              <FontAwesomeIcon icon={faStar} className="estrela" />
-              <FontAwesomeIcon icon={faStar} className="estrela" />
-              <FontAwesomeIcon icon={faStarHalfAlt} className="estrela" />
+              <div className="container-stars">
+                <FontAwesomeIcon icon={faStar} className="estrela" />
+                <FontAwesomeIcon icon={faStar} className="estrela" />
+                <FontAwesomeIcon icon={faStar} className="estrela" />
+                <FontAwesomeIcon icon={faStar} className="estrela" />
+                <FontAwesomeIcon icon={faStarHalfAlt} className="estrela" />
+              </div>
 
               <p className="card-text">
-                <span className="status">Status: Lendo</span>
-                <br />
-                <span className="cap">Cap 20/91</span> <br />{" "}
-                <small className="text-muted">
-                  Ultima vez visto 23/04/2022
-                </small>
+                <span className="cap">Cap 20/91</span>
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <button type="button" className=" btn-close" data-dismiss="modal" aria-label="Close">
-          <i className="fa-solid fa-x fa-xs"></i>
-        </button>
-        <div className="modal-dialog modal-lg ">
-          <div className="modal-content mt-5">
-            <div className="modal-body">
-              <div className="container">
-                <div className="row">
-                  <div className="col-12 col-md-6 mb-2">
-                    <img className="img-fluid card-img" src="../img/boruto.jpg" alt="..." />
-                  </div>
-                  <div className="col-12 col-md-6">
-                    <div className="conteudo-modal">
-                      <h2>Boruto</h2>
-                      <h6 className="text-muted"> Autor: Masashi Kishimoto</h6>
-                      <h5 className="mt-3">Informações:</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                      <br />
-                      <div className="d-flex justify-content-between">
-                        <h5>Ultima atualização:</h5>
-                        <p>29/04/2022 </p>
-                      </div>
-                      <div className="d-flex justify-content-between">
-                        <h5>Ano de lançamento:</h5>
-                        <p>01/12/2018 </p>
-                      </div>
-                      <div className="d-flex justify-content-between">
-                        <h5>Avaliação:</h5>
-                        <p><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-solid fa-star" aria-hidden="true"></i><i className="fa-regular fa-star" aria-hidden="true"></i> </p>
-                      </div>
-                      <div className="d-flex justify-content-between">
-                        <h5>Status:</h5>
-                        <li className="dropdown">
-                          <a className="nav-link nav-status dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Escolher status
-                          </a>
-                          <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="#">lendo</a>
-                            <a className="dropdown-item" href="#">Para ler</a>
-                            <a className="dropdown-item" href="#">Dropado</a>
-                            <a className="dropdown-item" href="#">Em espera</a>
-                          </div>
-                        </li>
-                      </div>
-                      <div className="d-flex justify-content-between">
-                        <h5>capítulo:</h5>
-                        <p> 25 / 90</p>
-                      </div>
-                      <div>
-                        <h5>Sinopse</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda libero corporis ut reiciendis quas recusandae accusamus, minus necessitatibus distinctio cupiditate! Sed veniam quasi aspernatur voluptatum voluptates? Fugiat aut ducimus totam!</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
