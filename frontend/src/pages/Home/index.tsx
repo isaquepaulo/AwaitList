@@ -3,12 +3,13 @@ import Slide from "./Slide/index";
 import SlideSecondary from "./SlideSecondary";
 import { useEffect, useState } from "react";
 import api from "utils/request";
+import { MangaSecondarySlide } from "types/mangaSecondarySlide";
 
 const Home = () => {
 
-  const [mangas, setMangas] = useState([]);
-  const [mangas2, setMangas2] = useState([]);
-  const [mangas3, setMangas3] = useState([]);
+  const [mangas, setMangas] = useState<MangaSecondarySlide[]>([]);
+  const [mangas2, setMangas2] = useState<MangaSecondarySlide[]>([]);
+  const [mangas3, setMangas3] = useState<MangaSecondarySlide[]>([]);
 
   useEffect(() => {
     api.get("manga/98/recommendations").then(({ data }) => {

@@ -1,12 +1,10 @@
-import { Webp } from "./webp";
-import { Images } from "./images";
-
-
 export type Entry = {
-    images: Images[];
-    webp: Webp[];
-    mal_id: number;
+    mal_id: number,
+    url: string,
+    images: {
+        jpg: {
+            image_url: string
+        }
+    }
     title: string;
-    url: string
 }
-

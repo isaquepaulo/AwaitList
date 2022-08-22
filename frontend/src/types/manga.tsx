@@ -1,7 +1,7 @@
 import { Authors } from "./authors";
 import { Demographics } from "./demographics";
 import { Genres } from "./genres";
-import { Images } from "./images";
+
 import { Published } from "./published";
 import { Themes } from "./themes";
 import { Webp } from "./webp";
@@ -10,7 +10,11 @@ import { Mal_id } from "./mal_id";
 export type Manga = {
   mal_id: Mal_id;
   url: string;
-  images: Images[];
+  images: {
+    jpg: {
+      image_url: string;
+    }
+  }
   webp: Webp[];
   title: string;
   title_english: string;

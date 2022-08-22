@@ -1,7 +1,14 @@
-import { Entry } from "./entry";
-
 export type MangaSecondarySlide = {
-    entry: Entry[]
+    entry: {
+        mal_id: number,
+        url: string,
+        images: {
+            jpg: {
+                image_url: string
+            }
+        }
+        title: string;
+    }
     url: string;
     votes: number
 }

@@ -3,13 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStarHalfAlt } from "@fortawesome/free-regular-svg-icons";
 import Modal, { ModalProps } from 'react-bootstrap/Modal';
-
 import { Manga } from "types/manga";
 import { Genres } from "types/genres";
 import { Themes } from "types/themes";
-import { Demographics } from "types/demographics";
-
-
+import { Demographics } from "types/demographics"; 
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, RefObject, useState } from "react";
 import { Omit, BsPrefixProps } from "react-bootstrap/esm/helpers";
 import CardGenre from "components/CardGenre";
@@ -32,10 +29,7 @@ const CardManga = ({ manga }: Props) => {
   function ModalCard(props: JSX.IntrinsicAttributes & Omit<Pick<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "key" | keyof HTMLAttributes<HTMLDivElement>> & { ref?: ((instance: HTMLDivElement | null) => void) | RefObject<HTMLDivElement> | null | undefined; }, BsPrefixProps<"div"> & ModalProps> & BsPrefixProps<"div"> & ModalProps & { children?: ReactNode; }) {
 
     let genres: Genres[] = Manga.genres;
-
     let themes: Themes[] = Manga.themes;
-
-
     let demographics: Demographics[] = Manga.demographics;
 
 

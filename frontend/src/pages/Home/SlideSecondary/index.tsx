@@ -8,6 +8,7 @@ type Props = {
 };
 
 const SlideSecondary = ({ Arrymangas }: Props) => {
+
     var settings = {
         dots: false,
         infinite: true,
@@ -54,7 +55,7 @@ const SlideSecondary = ({ Arrymangas }: Props) => {
         <div >
             <Slider {...settings}>
                 {Arrymangas.map(mangas => (
-                    <CardMangaHome manga={mangas.entry} key={0} />
+                    <CardMangaHome  manga_id={mangas.entry.mal_id} key={0} />
                 ))}
             </Slider>
         </div>
