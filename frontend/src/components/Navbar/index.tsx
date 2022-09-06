@@ -41,7 +41,11 @@ const NavigationBar = () => {
                     Top Mangás
                   </Dropdown.Item>
 
-                  <Dropdown.Item className="div-dropdown-navigation-text">Settings</Dropdown.Item>
+                  <Dropdown.Item className="div-dropdown-navigation-text" href="/genrePage">
+                    Generos
+                  </Dropdown.Item>
+
+
                   <Dropdown.Item className="div-dropdown-navigation-text">Logout</Dropdown.Item>
 
                 </Dropdown.Menu>

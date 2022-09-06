@@ -1,0 +1,18 @@
+.titles-Genre-text {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+
+
+}
+
+hr.hr-Genre {
+    color: rgb(183, 107, 245);
+    height: 2px;
+    opacity: 1;
+    margin: 0;
+    display: block
+}
+
+.container-genres-filter {
+    flex-wrap: wrap;
+}

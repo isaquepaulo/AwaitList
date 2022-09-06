@@ -6,7 +6,7 @@ import Modal, { ModalProps } from 'react-bootstrap/Modal';
 import { Manga } from "types/manga";
 import { Genres } from "types/genres";
 import { Themes } from "types/themes";
-import { Demographics } from "types/demographics"; 
+import { Demographics } from "types/demographics";
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, RefObject, useState } from "react";
 import { Omit, BsPrefixProps } from "react-bootstrap/esm/helpers";
 import CardGenre from "components/CardGenre";
@@ -14,7 +14,7 @@ import CardGenre from "components/CardGenre";
 
 
 type Props = {
-  manga: Manga[];
+  manga: Manga;
 };
 
 
@@ -55,14 +55,14 @@ const CardManga = ({ manga }: Props) => {
               </div>
               <div className="container-genres d-flex justify-content-center mb-3">
                 {genres?.map((genre, x) => (
-                  <CardGenre genre={genre.name} id={genre.mal_id} key={genre.mal_id} />
+                  <CardGenre genre={genre.name} key={genre.mal_id} />
                 ))}
 
                 {themes?.map((themes, x) => (
-                  <CardGenre genre={themes.name} id={themes.mal_id} key={themes.mal_id} />
+                  <CardGenre genre={themes.name} key={themes.mal_id} />
                 ))}
                 {demographics?.map((demographics, x) => (
-                  <CardGenre genre={demographics.name} id={demographics.mal_id} key={demographics.mal_id} />
+                  <CardGenre genre={demographics.name} key={demographics.mal_id} />
                 ))}
               </div>
             </div>

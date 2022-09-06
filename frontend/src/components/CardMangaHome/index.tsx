@@ -11,16 +11,16 @@ import { Manga } from "types/manga";
 
 
 type Props = {
-  manga_id: number
+  manga: any
 };
 
 
-const CardMangaHome = ({ manga_id }: Props) => {
+const CardMangaHome = ({ manga }: Props) => {
   const [modalShow, setModalShow] = useState(false);
   const [MangaM, setMangaM] = useState<Manga>();
 
   useEffect(() => {
-    api.get(`manga/${manga_id}`).then(({ data }) => {
+    api.get(`manga/${manga.mal_id}`).then(({ data }) => {
       setMangaM(data.data);
     });
 
@@ -31,6 +31,7 @@ const CardMangaHome = ({ manga_id }: Props) => {
     let genres = MangaM?.genres;
     let themes = MangaM?.themes;
     let demographics = MangaM?.demographics;
+
 
 
 
@@ -55,14 +56,14 @@ const CardMangaHome = ({ manga_id }: Props) => {
               </div>
               <div className="container-genres d-flex justify-content-center mb-3">
                 {genres?.map((genre, x) => (
-                  <CardGenre genre={genre.name} id={genre.mal_id} key={genre.mal_id} />
+                  <CardGenre genre={genre.name} key={genre.mal_id} />
                 ))}
 
                 {themes?.map((themes, x) => (
-                  <CardGenre genre={themes.name} id={themes.mal_id} key={themes.mal_id} />
+                  <CardGenre genre={themes.name} key={themes.mal_id} />
                 ))}
                 {demographics?.map((demographics, x) => (
-                  <CardGenre genre={demographics.name} id={demographics.mal_id} key={demographics.mal_id} />
+                  <CardGenre genre={demographics.name} key={demographics.mal_id} />
                 ))}
               </div>
             </div>
