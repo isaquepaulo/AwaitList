@@ -2,7 +2,7 @@ import api from "../../utils/request";
 import CardManga from "components/CardManga";
 import "./styles.css";
 import { useEffect, useState } from "react";
-
+ 
 const SearchPage = () => {
   const [mangas, setMangas] = useState([]);
 

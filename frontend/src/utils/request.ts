@@ -13,7 +13,6 @@ export const SlideApi = axios.create({
 })
 
 export const requestBackend = (config: AxiosRequestConfig) => {
-
     return axios({ ...config, baseURL: BASE_URL })
 }
 

@@ -1,3 +1,8 @@
+import api from "../utils/request";
+
+
+
+ 
 export const getUpcomingAPI = (num: any) => {
     return fetch(`https://api.jikan.moe/v4/seasons/upcoming?page=${num}&sfw`).then(
         (res) => res.json().then((results) => Promise.resolve(results))
@@ -18,6 +23,16 @@ export const getSeasonListAPI = () => {
 
 export const getAiringAPI = () => {
     return fetch(`https://api.jikan.moe/v4/manga/7/recommendations`).then((res) =>
+        res.json().then((results) => Promise.resolve(results))
+    );
+};
+export const getAiringAPI2 = () => {
+    return fetch(`https://api.jikan.moe/v4/manga/98/recommendations`).then((res) =>
+        res.json().then((results) => Promise.resolve(results))
+    );
+};
+export const getAiringAPI3 = () => {
+    return fetch(`https://api.jikan.moe/v4/manga/99/recommendations`).then((res) =>
         res.json().then((results) => Promise.resolve(results))
     );
 };
