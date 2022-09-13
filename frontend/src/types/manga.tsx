@@ -7,7 +7,7 @@ import { Themes } from "./themes";
 import { Webp } from "./webp";
 import { Mal_id } from "./mal_id";
 
-export type Manga = {
+type Manga = {
   mal_id: Mal_id;
   url: string;
   images: {
@@ -40,3 +40,5 @@ export type Manga = {
   themes: Themes[];
   demographics: Demographics[];
 };
+
+export default Manga;

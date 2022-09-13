@@ -2,7 +2,7 @@ import api from "../utils/request";
 
 
 
- 
+
 export const getUpcomingAPI = (num: any) => {
     return fetch(`https://api.jikan.moe/v4/seasons/upcoming?page=${num}&sfw`).then(
         (res) => res.json().then((results) => Promise.resolve(results))
@@ -98,7 +98,7 @@ export const getScheduleAPI = (day: any, num: any) => {
 };
 
 export const getDetailsAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}`).then((res) =>
+    return fetch(`https://api.jikan.moe/v4/manga/${id}`).then((res) =>
         res.json().then((results) => Promise.resolve(results))
     );
 };
