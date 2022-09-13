@@ -2,9 +2,8 @@ import { AxiosRequestConfig } from "axios";
 import CardManga from "components/CardManga";
 import Filter, { MangaFilterData } from "components/Filter";
 import { useCallback, useEffect, useState } from "react";
-import { Genres } from "types/genres";
-import { Manga } from "types/manga";
-import api, { requestBackend } from "utils/request";
+import Manga from "types/manga";
+import { requestBackend } from "utils/request";
 
 import "./styles.css";
 

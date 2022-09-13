@@ -1,9 +1,7 @@
-import CardGenreFilter from 'pages/GenreMangaPage/Card-filter-genre';
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import { Genres } from 'types/genres';
 import Select from "react-select";
-import { Manga } from 'types/manga';
 import api from 'utils/request';
 
 

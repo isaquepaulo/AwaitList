@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStarHalfAlt } from "@fortawesome/free-regular-svg-icons";
 import Modal, { ModalProps } from 'react-bootstrap/Modal';
-import { Manga } from "types/manga";
 import { Genres } from "types/genres";
 import { Themes } from "types/themes";
 import { Demographics } from "types/demographics";
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, RefObject, useState } from "react";
 import { Omit, BsPrefixProps } from "react-bootstrap/esm/helpers";
 import CardGenre from "components/CardGenre";
+import Manga from "types/manga";
 
 
 
