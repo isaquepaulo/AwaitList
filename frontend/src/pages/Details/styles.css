@@ -72,6 +72,78 @@
 }
 
 
+.container_sub_pages {
+    background: rgb(183, 107, 245);
+
+}
+
+.container_sub_pages .container_buttom_sub button {
+    background: rgba(255, 255, 255, 0.0);
+    color: #fff;
+
+    border: none;
+}
+
+.container_sub_pages .container_buttom_sub button p {
+    font-size: 1.4rem;
+
+}
+
+.container_sub_pages .container_buttom_sub button:hover {
+    border-bottom: 3px solid #fff;
+    margin-bottom: -3px;
+}
+
+.container_sub_pages .container_buttom_sub button:focus {
+    border-bottom: 3px solid #fff;
+    margin-bottom: -3px;
+}
+
+
+
+
+.button_backToTop {
+    width: 140px;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: bounce 0.6s infinite alternate;
+    background: rgba(255, 255, 255, 0.0);
+    border: none;
+
+}
+
+.img_backToTop {
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
+}
+
+.div_Button_backToTop {
+    background: rgba(255, 255, 255, 0.0);
+    color: #fff;
+
+}
+
+.div_Button_backToTop button p {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+
+@keyframes bounce {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-15px);
+    }
+}
+
 
 @media (max-width: 575px) {
 

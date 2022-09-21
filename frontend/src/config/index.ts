@@ -1,26 +1,3 @@
-import api from "../utils/request";
-
-
-
-
-export const getUpcomingAPI = (num: any) => {
-    return fetch(`https://api.jikan.moe/v4/seasons/upcoming?page=${num}&sfw`).then(
-        (res) => res.json().then((results) => Promise.resolve(results))
-    );
-};
-
-export const getSeasonAPI = (year: any, season: any, num: any) => {
-    return fetch(
-        `https://api.jikan.moe/v4/seasons/${year}/${season}?page=${num}&sfw`
-    ).then((res) => res.json().then((results) => Promise.resolve(results)));
-};
-
-export const getSeasonListAPI = () => {
-    return fetch(`https://api.jikan.moe/v4/seasons`).then((res) =>
-        res.json().then((results) => Promise.resolve(results))
-    );
-};
-
 export const getAiringAPI = () => {
     return fetch(`https://api.jikan.moe/v4/manga/7/recommendations`).then((res) =>
         res.json().then((results) => Promise.resolve(results))
@@ -48,6 +25,7 @@ export const getTopAPI = (num: any) => {
         })
         .then((results) => Promise.resolve(results));
 };
+
 
 export const getSearchAPI = (
     keyword: any,
@@ -99,12 +77,12 @@ export const getScheduleAPI = (day: any, num: any) => {
 
 export const getDetailsAPI = (id: any) => {
     return fetch(`https://api.jikan.moe/v4/manga/${id}`).then((res) =>
-        res.json().then((results) => Promise.resolve(results))
+        res.json().then((results) => Promise.resolve(results)) 
     );
 };
 
-export const getVideosAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/videos`).then((res) =>
+export const getPicturesAPI = (id: any) => {
+    return fetch(`https://api.jikan.moe/v4/manga/${id}/pictures`).then((res) =>
         res.json().then((results) => Promise.resolve(results))
     );
 };
@@ -122,30 +100,16 @@ export const getReviewsAPI = (id: any) => {
 };
 
 export const getRecommendationsAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/recommendations`).then(
-        (res) => res.json().then((results) => Promise.resolve(results))
-    );
-};
-
-export const getStatAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/statistics`).then(
+    return fetch(`https://api.jikan.moe/v4/manga/${id}/recommendations`).then(
         (res) => res.json().then((results) => Promise.resolve(results))
     );
 };
 
 export const getCharactersAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/characters`).then(
+    return fetch(`https://api.jikan.moe/v4/manga/${id}/characters`).then(
         (res) => res.json().then((results) => Promise.resolve(results))
     );
 };
-export const getStaffAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/staff`).then((res) =>
-        res.json().then((results) => Promise.resolve(results))
-    );
-};
 
-export const getMoreInfoAPI = (id: any) => {
-    return fetch(`https://api.jikan.moe/v4/anime/${id}/moreinfo`).then((res) =>
-        res.json().then((results) => Promise.resolve(results))
-    );
-};
+
+

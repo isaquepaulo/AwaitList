@@ -1,14 +1,12 @@
 import { Authors } from "./authors";
 import { Demographics } from "./demographics";
 import { Genres } from "./genres";
-
-import { Published } from "./published";
 import { Themes } from "./themes";
 import { Webp } from "./webp";
 import { Mal_id } from "./mal_id";
 
 type Manga = {
-  mal_id: Mal_id;
+  mal_id: number | string;
   url: string;
   images: {
     jpg: {
@@ -25,7 +23,23 @@ type Manga = {
   volumes: null;
   status: string;
   publishing: boolean;
-  published: Published[];
+  published: {
+    from: string;
+    to: null;
+    string: string;
+    prop: {
+      from: {
+        day: number;
+        month: number;
+        year: number;
+      },
+      to: {
+        day: number;
+        month: number;
+        year: number;
+      }
+    }
+  }
   score: number;
   scored: number;
   scored_by: number;

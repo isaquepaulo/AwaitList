@@ -3,71 +3,22 @@ import "./styles.css";
 import CardMangaHome from "components/CardMangaHome";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-
-
+import { useSelector } from "hooks/useTypeSelector";
+import { useAppDispatch } from "hooks/useTypeDispatch";
+import { getRecommendationsAPI } from "store/recomendationsContent";
 
 const SlideSecondary = (props: any) => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState("false");
   const [all, setAll] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const params = useParams();
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    let mounted = true;
-    if (props.all === true) {
-      setAll(true);
-    }
-    if (props.haveData) {
-      setData(props.data);
-    } else {
-      dispatch({ type: "LOADING_CARD_TRUE" });
-      props.api
-        .then((result: any) => {
-          if (mounted) {
-            if (result.error) {
-            } else {
-              setData(result.data);
-            }
-            if (props.firstCard) {
-              dispatch({ type: "LOADING_CARD_FALSE" });
-            } else {
-              return;
-            }
-          } else {
-            return;
-          }
-        })
-        .catch((error: any) => {
-          if (mounted) {
-            setError(error);
-            if (props.firstCard) {
-              dispatch({ type: "LOADING_CARD_FALSE" });
-            } else {
-              return;
-            }
-          } else {
-            return;
-          }
-        });
-    }
-    return () => {
-      mounted = false
-    }
-  }, [
-    params,
-    dispatch,
-    error,
-    props.all,
-    props.api,
-    props.firstCard,
-    props.data,
-    props.haveData,
-  ]);
+    dispatch(getRecommendationsAPI(params.id));
+  }, [dispatch, params.id]);
+
+  const { data, loading, error } = useSelector((state) => state.reducer.recomendationsContent);
   var settings = {
     dots: false,
     infinite: true,
@@ -115,9 +66,8 @@ const SlideSecondary = (props: any) => {
     event.preventDefault();
     navigate(`/details/${event.currentTarget.id}`);
   };
-
-
-
+  if (loading) return <div>Carregando...</div>;
+  if (error) return <div>{error}</div>;
   return (
     <div >
       <h1 className="">
