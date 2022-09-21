@@ -27,3 +27,7 @@
      margin: 0;
      padding: 0;
  }
+
+ .bg-tranparent {
+     background-color: rgba(183, 107, 245, 0.0)
+ }

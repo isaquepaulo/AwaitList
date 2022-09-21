@@ -1,0 +1,15 @@
+.button_SlideSecondary {
+    background: rgb(183, 107, 245);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.arrow-button {
+    margin-left: 10px;
+}
+
+.hr_SlideSecondary {
+    color: rgb(183, 107, 245);
+}

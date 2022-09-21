@@ -1,0 +1,29 @@
+.img_character {
+    height: 170px;
+    width: 150px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.div_container_chacters .row>* {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card_characters {
+    background: rgb(148, 94, 192);
+    max-width: 200px;
+    margin-left: 20px;
+    border-radius: 20px 20px 20px 20px;
+    max-width: 540px;
+}
+
+.card_characters p {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 10px
+}
+
+.card_characters h5 {
+    margin-top: 10px;
+    color: #fff;
+}
