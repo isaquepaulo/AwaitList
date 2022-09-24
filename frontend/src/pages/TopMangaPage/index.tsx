@@ -3,7 +3,6 @@ import CardManga from "components/CardManga";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Manga from "types/manga";
 
 const SearchPage = () => {
   const [mangas, setMangas] = useState([]);
@@ -17,8 +16,6 @@ const SearchPage = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(mangas)
-
-
 
   const handleClickEvent = (event: any) => {
     event.preventDefault();

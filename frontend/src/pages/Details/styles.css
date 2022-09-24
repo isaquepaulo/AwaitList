@@ -78,18 +78,43 @@
 }
 
 .container_sub_pages .container_buttom_sub button {
-    background: rgba(255, 255, 255, 0.0);
+    background: rgba(158, 126, 126, 0);
     color: #fff;
-
+    color: #fff;
     border: none;
 }
+
+.container_sub_pages .container_buttom_sub .active {
+    border-bottom: 3px solid #fff;
+    margin-bottom: -3px;
+}
+
+.container_sub_pages .container_buttom_sub .active:hover {
+    border-bottom: 3px solid #fff;
+    margin-bottom: -3px;
+}
+
+.container_sub_pages .container_buttom_sub .notActive {
+    background: rgba(230, 4, 4, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+.container_sub_pages .container_buttom_sub .notActive:hover {
+    border-bottom: 3px solid #fff;
+    padding-bottom: -3px;
+
+}
+
+
+
 
 .container_sub_pages .container_buttom_sub button p {
     font-size: 1.4rem;
 
 }
 
-.container_sub_pages .container_buttom_sub button:hover {
+/* .container_sub_pages .container_buttom_sub button:hover {
     border-bottom: 3px solid #fff;
     margin-bottom: -3px;
 }
@@ -97,7 +122,9 @@
 .container_sub_pages .container_buttom_sub button:focus {
     border-bottom: 3px solid #fff;
     margin-bottom: -3px;
-}
+} */
+
+
 
 
 

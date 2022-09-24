@@ -1,3 +1,4 @@
+import LoaderCharacter from "components/Loader/LoaderCharacter";
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { useSelector } from "hooks/useTypeSelector";
 import { useEffect } from "react";
@@ -9,7 +10,7 @@ import './styles.css'
 const Characters = () => {
   const params = useParams();
 
-  const dispatch = useAppDispatch(); 
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getCharactersAPI(params.id));
@@ -17,7 +18,7 @@ const Characters = () => {
 
   const { data, loading, error } = useSelector((state) => state.reducer.charactersContent);
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <div><LoaderCharacter /></div>;
   if (error) return <div>{error}</div>;
   return (
     <div className="div_container_chacters mt-5">

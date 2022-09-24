@@ -31,7 +31,11 @@ const CardManga = ({ manga }: Props) => {
             <div className="card-body">
               <h5 className="card-title">{Manga.title}</h5>
 
-              <div className="text-muted card-autor-text">{Manga.authors[0].name}</div>
+
+              {/* <div className="text-muted card-autor-text">{Manga.authors[0].name}</div> */}
+              <div className="text-muted card-autor-text">
+                {Manga.authors[0] ? Manga.authors[0].name : 'not author'}
+              </div>
               <br />
               <div className="container-stars">
                 <FontAwesomeIcon icon={faStar} className="estrela" />

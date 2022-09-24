@@ -1,11 +1,8 @@
 import "./styles.css";
 import Slide from "./Slide/index";
-import { getRecommendationsAPI } from "store/recomendationsContent";
 import SlideHome from "components/SlideHome";
 
-import { useParams } from "react-router-dom";
 import { getAiringAPI, getAiringAPI2, getAiringAPI3 } from "config";
-
 const Home = () => {
   return (
     <div className="container">

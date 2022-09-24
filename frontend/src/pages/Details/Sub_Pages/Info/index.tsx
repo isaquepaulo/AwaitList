@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'hooks/useTypeSelector'
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { getDetailsAPI } from "store/infoContent";
-import './styles.css' 
+import './styles.css'
+
 
 const Info = () => {
     const dispatch = useAppDispatch();
@@ -17,7 +18,7 @@ const Info = () => {
 
     const { data, loading, error } = useSelector((state) => state.reducer.mangaContent);
 
-    if (loading) return <div>Carregando...</div>;
+    if (loading) return <div>caregando...</div>;
     if (error) return <div>{error}</div>;
     return (
         <div className='container_info mt-5 mb-5'>

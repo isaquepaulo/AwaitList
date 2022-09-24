@@ -4,6 +4,8 @@ import { useSelector } from 'hooks/useTypeSelector'
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { getPicturesAPI } from 'store/picturesContent';
 import './styles.css'
+import LoaderPictures from 'components/Loader/LoaderPictures';
+
 
 const Pictures = () => {
     const params = useParams();
@@ -13,7 +15,8 @@ const Pictures = () => {
     }, [dispatch, params.id]);
     const { data, loading, error } = useSelector((state) => state.reducer.picturesContent);
     let i = 0;
-    if (loading) return <div>Carregando...</div>;
+
+    if (loading) return <div><LoaderPictures /></div>;
     if (error) return <div>{error}</div>;
     return (
         <div>

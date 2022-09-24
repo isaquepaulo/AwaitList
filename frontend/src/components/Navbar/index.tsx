@@ -5,16 +5,39 @@ import {
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useState } from "react";
 
 
 
 const NavigationBar = () => {
+
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+
+
+  const handleChangeValue = (e: any) => {
+    setValue(e.target.value);
+    e.target.addEventListener("keypress", (e: any) => {
+      if (e?.keyCode === 13) {
+        document.getElementById("search")!.click();
+        console.log(e)
+      }
+    });
+  };
+
+  const handleSubmit = () => {
+    if (value !== "") {
+      navigate(`/search/${value}/page/1`);
+      setValue("");
+    }
+  };
+
   return (
-    <Navbar bg="info" expand="lg">
+    <Navbar bg="info" expand="lg" className="mb-5">
       <Container>
         <Link to="/" className="div-brand-navigation">
           <Navbar.Brand ><h3>
@@ -24,10 +47,13 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-
-            <div className="div-input-search ">
-              <input type="email" className="form-control" />
+            <div className="div-input-search input-group ">
+              <input type="search" className="form-control" placeholder="search manga" aria-label="search manga" aria-describedby="button-addon2" onChange={(e) => handleChangeValue(e)}
+                value={value} />
+              <button className="btn btn-outline-primary" type="submit" id="search" name="search" onClick={handleSubmit}>Button</button>
             </div>
+
+
 
 
             <div className="d-flex justify-content-around align-items-center">

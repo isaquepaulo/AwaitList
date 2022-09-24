@@ -25,21 +25,12 @@ export const getTopAPI = (num: any) => {
         })
         .then((results) => Promise.resolve(results));
 };
-
-
 export const getSearchAPI = (
     keyword: any,
     num: any,
-    order_by: any,
-    sort: any,
-    type: any,
-    status: any,
-    rating: any
 ) => {
     return fetch(
-        `https://api.jikan.moe/v4/anime?${keyword ? `q=${keyword}` : ""}${num ? `&page=${num}` : ""
-        }&sfw${order_by ? `&order_by=${order_by}` : ""}${sort ? `&sort=${sort}` : ""
-        }${type ? `&type=${sort}` : ""}${status ? `&status=${status}` : ""}${rating ? `&rating=${rating}` : ""
+        `https://api.jikan.moe/v4/manga?${keyword ? `q=${keyword}` : ""}${num ? `&page=${num}` : ""
         }`
     )
         .then((res) => {
@@ -51,6 +42,31 @@ export const getSearchAPI = (
         })
         .then((results) => Promise.resolve(results));
 };
+
+// export const getSearchAPI = (
+//     keyword: any,
+//     num: any,
+//     order_by: any,
+//     sort: any,
+//     type: any,
+//     status: any,
+//     rating: any
+// ) => {
+//     return fetch(
+//         `https://api.jikan.moe/v4/manga?${keyword ? `q=${keyword}` : ""}${num ? `&page=${num}` : ""
+//         }&sfw${order_by ? `&order_by=${order_by}` : ""}${sort ? `&sort=${sort}` : ""
+//         }${type ? `&type=${sort}` : ""}${status ? `&status=${status}` : ""}${rating ? `&rating=${rating}` : ""
+//         }`
+//     )
+//         .then((res) => {
+//             if (res.ok) {
+//                 return res.json();
+//             } else {
+//                 throw new Error("Something went wrong");
+//             }
+//         })
+//         .then((results) => Promise.resolve(results));
+// };
 
 export const getTodayAPI = () => {
     const weekday = [
@@ -77,7 +93,7 @@ export const getScheduleAPI = (day: any, num: any) => {
 
 export const getDetailsAPI = (id: any) => {
     return fetch(`https://api.jikan.moe/v4/manga/${id}`).then((res) =>
-        res.json().then((results) => Promise.resolve(results)) 
+        res.json().then((results) => Promise.resolve(results))
     );
 };
 

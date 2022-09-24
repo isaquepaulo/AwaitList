@@ -4,7 +4,8 @@ import picturesContent from "./picturesContent";
 import infoContent from "./infoContent";
 import charactersContent from "./charactersContent";
 import recomendationsContent from "./recomendationsContent";
-const reducer = combineReducers({ mangaContent, picturesContent, infoContent, charactersContent, recomendationsContent });
+import searchPage from "./searchPage";
+const reducer = combineReducers({ mangaContent, picturesContent, infoContent, charactersContent, recomendationsContent, searchPage });
 
 const store = configureStore({
     reducer: {

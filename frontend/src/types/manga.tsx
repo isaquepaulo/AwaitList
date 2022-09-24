@@ -3,7 +3,6 @@ import { Demographics } from "./demographics";
 import { Genres } from "./genres";
 import { Themes } from "./themes";
 import { Webp } from "./webp";
-import { Mal_id } from "./mal_id";
 
 type Manga = {
   mal_id: number | string;

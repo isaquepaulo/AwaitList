@@ -1,15 +1,17 @@
 import "./styles.css";
 import { Key, useCallback, useEffect, useState } from "react";
-import Manga from "types/manga";
 import CardGenre from "components/CardGenre";
 import Info from "./Sub_Pages/Info";
 import Character from "./Sub_Pages/Characters";
+import 'react-loading-skeleton/dist/skeleton.css';
 import Pictures from "./Sub_Pages/Pictures";
 import Recomendations from "./Sub_Pages/Recomendations";
 import { useSelector } from 'hooks/useTypeSelector'
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { getDetailsAPI } from "store/mangaContent";
 import { useParams } from "react-router-dom";
+import LoaderDetails from "components/Loader/LoaderDetails";
+
 
 const Details = () => {
   const dispatch = useAppDispatch();
@@ -64,8 +66,9 @@ const Details = () => {
   const demographics = data?.demographics
 
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading) return <div><LoaderDetails /></div>;
   if (error) return <div>{error}</div>;
+
   return (
     <>
       <div className="container_detail container">
@@ -126,8 +129,6 @@ const Details = () => {
                     : ""}
                 </p>
               </div>
-
-
               <p className="text_score_members">{data?.members
                 ? `${data?.members
                   .toString()
@@ -143,39 +144,39 @@ const Details = () => {
           <div className=" d-flex flex-column flex-md-row justify-content-around">
             <button
               onClick={() => switchContent(1)}
-              className={`${contentNav ? "" : ""
+              className={`${contentNav ? "active" : "notActive"
                 } ${content === 1
-                  ? ""
-                  : ""
+                  ? "active"
+                  : "notActive"
                 }`}>
               <p>Informações</p>
             </button>
             <button
               onClick={() => switchContent(2)}
-              className={`${contentNav ? "" : ""
+              className={`${contentNav ? "active" : "notActive"
                 } ${content === 2
-                  ? ""
-                  : ""
+                  ? "active"
+                  : "notActive"
                 } `}
             >
               <p>Personagens</p>
             </button>
             <button
               onClick={() => switchContent(3)}
-              className={` ${contentNav ? "" : ""
+              className={` ${contentNav ? "active" : "notActive"
                 }  ${content === 3
-                  ? ""
-                  : ""
+                  ? "active"
+                  : "notActive"
                 } `}
             >
               <p>Galeria</p>
             </button>
             <button
               onClick={() => switchContent(4)}
-              className={` ${contentNav ? "" : ""
+              className={` ${contentNav ? "active" : "notActive"
                 }  ${content === 4
-                  ? ""
-                  : ""
+                  ? "active"
+                  : "notActive"
                 } `}
             >
               <p>Recomendações</p>
