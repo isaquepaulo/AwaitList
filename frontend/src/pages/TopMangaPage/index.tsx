@@ -1,26 +1,67 @@
-import api from "../../utils/request";
 import CardManga from "components/CardManga";
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SpringPage } from "types/vendor/spring";
+import Manga from "types/manga";
+import { AxiosRequestConfig } from "axios";
+import { requestBackend } from "config";
+import Pagination from "components/Pagination";
 
-const SearchPage = () => {
-  const [mangas, setMangas] = useState([]);
+type ControlComponentsData = { 
+  activePage: number;
+};
+
+
+const TopMangaPage = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    api.get("top/manga").then(({ data }) => {
-      setMangas(data.data);
+  const [page, setpage] = useState<SpringPage<Manga>>();
+  const [mangas, setMangas] = useState([]);
+  const [ControlComponentsData, setControlComponentsData] =
+    useState<ControlComponentsData>({
+      activePage: 0,
     });
 
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  console.log(mangas)
+
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({
+      activePage: pageNumber,
+    });
+  };
+  const getTopManga = useCallback(() => {
+    const config: AxiosRequestConfig = {
+      method: "GET",
+      url: "top/manga",
+      params: {
+        page: ControlComponentsData.activePage,
+        limit: 24
+      },
+    };
+    requestBackend(config).then((response) => {
+      setpage(response.data);
+      setMangas(response.data.data);
+    });
+  }, [ControlComponentsData]);
+
+
+  useEffect(() => {
+    getTopManga()
+  }, [getTopManga]);
+
+
+
+
+  console.log(page)
+
+
+
 
   const handleClickEvent = (event: any) => {
     event.preventDefault();
     navigate(`/details/${event.currentTarget.id}`);
   };
+
+
   return (
     <div className="container">
       <div className="d-flex justify-content-center mt-4">
@@ -35,8 +76,14 @@ const SearchPage = () => {
           </div>
         ))}
       </div>
+      <Pagination
+        forcePage={0}
+        pageCount={page ? page.pagination.last_visible_page : 1}
+        range={3}
+        onChange={handlePageChange}
+      />
     </div>
   );
 };
 
-export default SearchPage;
+export default TopMangaPage;

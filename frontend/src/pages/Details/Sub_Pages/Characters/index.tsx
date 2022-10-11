@@ -1,3 +1,4 @@
+import CardCharacter from "components/CardCharacter";
 import LoaderCharacter from "components/Loader/LoaderCharacter";
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { useSelector } from "hooks/useTypeSelector";
@@ -21,29 +22,15 @@ const Characters = () => {
   if (loading) return <div><LoaderCharacter /></div>;
   if (error) return <div>{error}</div>;
   return (
-    <div className="div_container_chacters mt-5">
-      <div className="row justify-content-center">
+    <div className="container ">
+      <div className="row">
         {data?.length !== 0 ? (
           data?.map((data) => (
-            <div className="col-10 col-sm-6 col-md-4 container_character card_characters mb-3" key={data.character.mal_id}>
-              <div className="row g-1 ">
-                <div className="col-5">
-                  <img
-                    className="img_character"
-                    src={data.character.images.jpg.image_url}
-                    alt={data?.character.name}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <div className="card-body">
-                    <h5 className="">Nome: {data.character.name}</h5>
-                    <p className="card-text">Função: {data.role}</p>
-                  </div>
-                </div>
-              </div>
+            <div className="col-12 col-sm-12 col-md-6 col-lg-4 p-2 " key={data.character.mal_id}>
+              <CardCharacter character={data} />
             </div>
           ))
-        ) : (<h1 className="text-3xl ">Not Available Charaters</h1>
+        ) : (<h1 className=" ">Not Available Charaters</h1>
         )}
       </div>
     </div>

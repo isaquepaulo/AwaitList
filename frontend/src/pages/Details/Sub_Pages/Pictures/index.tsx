@@ -19,19 +19,19 @@ const Pictures = () => {
     if (loading) return <div><LoaderPictures /></div>;
     if (error) return <div>{error}</div>;
     return (
-        <div>
-            <div className="">
+        <div className='mt-5'>
+            <div className="row">
                 {data?.length !== 0 ? (
                     data?.map((data) => (
-                        <div key={i++}>
+                        <div className="div_pictures col-12 col-sm-12 col-md-6 col-lg-3 " key={i++}>
                             <img
-                                className="img_character"
+                                className="img_picture"
                                 src={data.jpg.image_url}
                                 alt="img"
                             />
                         </div>
                     ))
-                ) : (<h1 className="text-3xl ">Not Available Pictures</h1>
+                ) : (<h1 className=" ">Not Available Pictures</h1>
                 )}
             </div>
         </div>

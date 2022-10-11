@@ -1,19 +1,20 @@
 import Navbar from "components/Navbar";
 import Details from "pages/Details";
+import FindManga from "pages/FindManga";
 import GenrePage from "pages/GenreMangaPage";
 import Home from "pages/Home";
 import Search from "pages/Search";
-import SearchPage from "pages/TopMangaPage";
+import TopMangaPage from "pages/TopMangaPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Rota = () => {
-  return (
+  return ( 
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" caseSensitive={false} element={<Home />} />
-        <Route path="/search" caseSensitive={false} element={<SearchPage />} />
-        <Route path="/Manga" caseSensitive={false} element={<h1>Manga</h1>} />
+        <Route path="/top" caseSensitive={false} element={<TopMangaPage />} />
+        <Route path="/findManga" caseSensitive={false} element={<FindManga />} />
         <Route path="/details/:id" element={<Details />} />
         <Route
           path="/search/:value/page/:number"

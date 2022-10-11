@@ -1,3 +1,5 @@
+import axios, { AxiosRequestConfig } from "axios";
+
 export const getAiringAPI = () => {
     return fetch(`https://api.jikan.moe/v4/manga/7/recommendations`).then((res) =>
         res.json().then((results) => Promise.resolve(results))
@@ -28,10 +30,10 @@ export const getTopAPI = (num: any) => {
 export const getSearchAPI = (
     keyword: any,
     num: any,
+    limit: any
 ) => {
     return fetch(
-        `https://api.jikan.moe/v4/manga?${keyword ? `q=${keyword}` : ""}${num ? `&page=${num}` : ""
-        }`
+        `https://api.jikan.moe/v4/manga?${keyword ? `q=${keyword}` : ""}${num ? `&page=${num}` : ""}${limit ? `&limit=${limit}` : ""}`
     )
         .then((res) => {
             if (res.ok) {
@@ -42,6 +44,35 @@ export const getSearchAPI = (
         })
         .then((results) => Promise.resolve(results));
 };
+
+
+export const getGenreAPI = (
+    mal_id: any
+) => {
+    return fetch(
+        `https://api.jikan.moe/v4/manga?genres${mal_id}`
+    )
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error("Something went wrong");
+            }
+        })
+        .then((results) => Promise.resolve(results));
+};
+
+export const BASE_URL = 'https://api.jikan.moe/v4';
+
+export const requestBackend = (config: AxiosRequestConfig) => {
+
+    return axios({ ...config, baseURL: BASE_URL })
+}
+
+
+
+
+
 
 // export const getSearchAPI = (
 //     keyword: any,

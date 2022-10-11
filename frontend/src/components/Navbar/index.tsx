@@ -52,36 +52,23 @@ const NavigationBar = () => {
                 value={value} />
               <button className="btn btn-outline-primary" type="submit" id="search" name="search" onClick={handleSubmit}>Button</button>
             </div>
-
-
-
-
             <div className="d-flex justify-content-around align-items-center">
-
-
               <Dropdown>
                 <Dropdown.Toggle className="div-dropdown-navigation-text" variant="success">Descubra Mangás</Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item className="div-dropdown-navigation-text" href="/search">
+                  <Dropdown.Item className="div-dropdown-navigation-text" href="/top">
                     Top Mangás
                   </Dropdown.Item>
-
                   <Dropdown.Item className="div-dropdown-navigation-text" href="/genrePage">
-                    Generos
+                    Genero
                   </Dropdown.Item>
-
-
-                  <Dropdown.Item className="div-dropdown-navigation-text">Logout</Dropdown.Item>
-
+                  <Dropdown.Item className="div-dropdown-navigation-text" href="/findManga" >Encontrar Manga</Dropdown.Item>
                 </Dropdown.Menu>
-
               </Dropdown>
-
               <div className="div-name-user">
                 Bem Vindo <span className="span-name-user">Isaque</span>
               </div>
-
               <div>
                 <button className="btn btn-mode-dark mr-2" type="button">
                   <FontAwesomeIcon icon={faMoon} />

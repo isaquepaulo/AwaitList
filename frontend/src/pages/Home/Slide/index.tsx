@@ -5,13 +5,11 @@ import { SlideApi } from "utils/request";
 import { MangaSlide } from "types/mangaSlide";
 import Button from "components/Button"
 
-
 const Slide = () => {
     const [mangas, setMangas] = useState([]);
     useEffect(() => {
         SlideApi.get("").then((response) => {
             setMangas(response.data.data);
-
         });
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -35,15 +33,11 @@ const Slide = () => {
                                 <Button text={"Ver Sobre"} id={manga.mal_id} />
                             </div>
                         </div>
-
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}
         </Carousel>
-
     );
-
-
 }
 
 export default Slide;

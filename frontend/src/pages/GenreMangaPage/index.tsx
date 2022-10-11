@@ -1,81 +1,92 @@
 import { AxiosRequestConfig } from "axios";
 import CardManga from "components/CardManga";
-import Filter, { MangaFilterData } from "components/Filter";
+import Filter, { MangaFilter } from "components/Filter";
+import Pagination from "components/Pagination";
+import { requestBackend } from "config";
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Manga from "types/manga";
-import { requestBackend } from "utils/request";
-
+import { SpringPage } from "types/vendor/spring";
 import "./styles.css";
 
 type ControlComponentsData = {
-    filterdata: MangaFilterData;
+    activePage: number;
+    filterdata: MangaFilter;
 };
 
-
-const GenrePage = () => {
+const List = () => {
+    const navigate = useNavigate();
     const [mangas, setMangas] = useState<Manga[]>([]);
-    const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
-        filterdata: { name: "", genre: null }
-    })
+    const [page, setpage] = useState<SpringPage<Manga>>();
 
 
 
-    const handleSubmitFilter = (data: MangaFilterData) => {
+    const [ControlComponentsData, setControlComponentsData] =
+        useState<ControlComponentsData>({
+            activePage: 0,
+            filterdata: { genre: null },
+        });
+
+    const handlePageChange = (pageNumber: number) => {
         setControlComponentsData({
+            activePage: pageNumber,
+            filterdata: ControlComponentsData.filterdata,
+        });
+    };
+
+    // const teste = ControlComponentsData.filterdata.genre?.mal_id
+    const handleSubmitFilter = (data: MangaFilter) => {
+        setControlComponentsData({
+            activePage: 0,
             filterdata: data,
         });
     };
 
-    const getMangas = useCallback(() => {
+    const getMangasGenre = useCallback(() => {
         const config: AxiosRequestConfig = {
             method: "GET",
-            url: `/top/manga&limit=5`,
-            params: {
+            url: "manga",
 
+            params: {
+                genres: ControlComponentsData.filterdata.genre?.mal_id,
+                page: ControlComponentsData.activePage,
+                limit: 24
             },
         };
-
         requestBackend(config).then((response) => {
+            setpage(response.data);
             setMangas(response.data.data);
         });
-    }, []);
-
+    }, [ControlComponentsData]);
 
     useEffect(() => {
-        getMangas();
-    }, [getMangas]);
+        getMangasGenre()
+    }, [getMangasGenre]);
 
-
+    const handleClickEvent = (event: any) => {
+        event.preventDefault();
+        navigate(`/details/${event.currentTarget.id}`);
+    };
 
 
     return (
-        <div className="container">
-            <div className="title-container">
-                <h2 className="titles-Genre-text mt-4">
-                    Generos
-                </h2>
-                <hr className="hr-Genre" />
-                <br />
-            </div>
-
-            <div className="row">
-                <Filter onSubmitFilter={handleSubmitFilter} />
-
-            </div>
-            <hr className="hr-Genre mt-4" />
-
-            <div className="row mt-5">
-                {mangas?.map((manga, x) => (
-                    <div className="col-12 col-sm-12 col-md-6 col-lg-3 pb-5" key={x + 1}>
+        <div className="container mb-3">
+            <Filter onSubmitFilter={handleSubmitFilter} />
+            <div className="row mb-4">
+                {mangas?.map((manga: any) => (
+                    <div onClick={handleClickEvent} id={manga.mal_id} key={manga.mal_id} className="col-sm-6 col-md-4 col-lg-3">
                         <CardManga manga={manga} />
                     </div>
                 ))}
             </div>
-
-
+            <Pagination
+                forcePage={0}
+                pageCount={page ? page.pagination.last_visible_page : 0}
+                range={3}
+                onChange={handlePageChange}
+            />
         </div>
-
     );
 };
 
-export default GenrePage;
+export default List;

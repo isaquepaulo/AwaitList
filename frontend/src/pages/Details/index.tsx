@@ -9,15 +9,17 @@ import Recomendations from "./Sub_Pages/Recomendations";
 import { useSelector } from 'hooks/useTypeSelector'
 import { useAppDispatch } from "hooks/useTypeDispatch";
 import { getDetailsAPI } from "store/mangaContent";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LoaderDetails from "components/Loader/LoaderDetails";
 
 
 const Details = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const [content, setContent] = useState(0);
   const [contentNav, setContentNav] = useState(true);
+
   const [isVisible, setIsVisible] = useState(true);
   const params = useParams();
 
@@ -55,7 +57,11 @@ const Details = () => {
   useEffect(() => {
     dispatch(getDetailsAPI(params.id));
     switchContent(1);
+
   }, [dispatch, params.id, switchContent]);
+
+
+
 
   // eslint-disable-next-line no-empty-pattern
   const { data, loading, error } = useSelector((state) => state.reducer.mangaContent);
@@ -64,6 +70,14 @@ const Details = () => {
   const genres = data?.genres
   const themes = data?.themes
   const demographics = data?.demographics
+
+
+
+
+  const handleClickEventGenre = (event: any) => {
+    event.preventDefault();
+    navigate(`/genrePage/`);
+  };
 
 
   if (loading) return <div><LoaderDetails /></div>;
@@ -80,14 +94,22 @@ const Details = () => {
               alt=""
             />
             <div className="container-genres d-flex justify-content-center mb-3">
+
               {genres?.map((genre: { name: string; mal_id: Key | null | undefined; }, x: any) => (
-                <CardGenre genre={genre.name} key={genre.mal_id} />
+                <div onClick={handleClickEventGenre} key={genre.mal_id}>
+                  <CardGenre genre={genre.name} />
+                </div>
               ))}
+
               {themes?.map((theme: { name: string; mal_id: Key | null | undefined; }, x: any) => (
-                <CardGenre genre={theme.name} key={theme.mal_id} />
+                <div onClick={handleClickEventGenre} key={theme.mal_id}>
+                  <CardGenre genre={theme.name} key={theme.mal_id} />
+                </div>
               ))}
               {demographics?.map((demographic: { name: string; mal_id: Key | null | undefined; }, x: any) => (
-                <CardGenre genre={demographic.name} key={demographic.mal_id} />
+                <div onClick={handleClickEventGenre} key={demographic.mal_id}>
+                  <CardGenre genre={demographic.name} key={demographic.mal_id} />
+                </div>
               ))}
             </div>
           </div>

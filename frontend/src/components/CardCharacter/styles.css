@@ -1,0 +1,15 @@
+.card_character {
+    border: 1px solid black;
+    height: 134px;
+    border-radius: 20px 20px 20px 20px;
+    border-left: none;
+    padding-top: -10px;
+
+}
+
+.img_character {
+    height: 58%;
+    width: 90%;
+    border-radius: 20px 0 0 20px;
+
+}

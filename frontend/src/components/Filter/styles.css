@@ -1,3 +1,32 @@
 .container-genres-filter {
     flex-wrap: wrap;
 }
+
+.manga-filter-select {
+    color: red !important;
+}
+
+.css-1s2u09g-control {
+    border-color: rgb(183, 107, 245) !important;
+    box-shadow: 0 0 0 1px rgb(183, 107, 245) !important;
+}
+
+.css-1pahdxg-control {
+    border-color: rgb(183, 107, 245) !important;
+
+    box-shadow: 0 0 0 1px rgb(183, 107, 245) !important;
+}
+
+.css-6j8wv5-Input {
+    color: rgb(183, 107, 245) !important;
+}
+
+.css-tj5bde-Svg {
+    color: rgb(183, 107, 245) !important;
+}
+
+@media (max-width: 767px) {
+    .button_filter {
+        margin-top: 20px;
+    }
+}
